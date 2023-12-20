@@ -1,13 +1,13 @@
 const express = require('express');
 
 const router = express.Router();
+const categoriesService = require('./../services/category.service')
 
-router.get('/categories/:categoryId/products/:productId', (req, res) => {
+const service = new categoriesService();
+
+router.get('/:categoryId/products/:productId', (req, res) => {
   const { categoryId, productId } = req.params;
-  res.json({
-    categoryId,
-    productId,
-  });
+  res.json(service.findOne(categoryId,productId))
 });
 
 module.exports = router;
