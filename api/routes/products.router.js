@@ -34,7 +34,8 @@ router.get(
   },
 );
 
-router.post('/',
+router.post(
+  '/',
   validatorHandler(createProductSchema, 'body'),
   async (req, res) => {
     const body = req.body;
@@ -43,7 +44,8 @@ router.post('/',
   },
 );
 
-router.patch('/:id',
+router.patch(
+  '/:id',
   validatorHandler(getProductSchema, 'params'),
   validatorHandler(updateProductSchema, 'body'),
   async (req, res, next) => {
